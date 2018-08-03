@@ -1,5 +1,5 @@
 # Word-Frequency-News
-Scrapes the recent news add displays the word frequency
+Django app that scrapes the recent news and displays the word frequency on a plotly bar chart.
 Recent News from:
 [Birgün](https://www.birgun.net/guncel)
 
