@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+       
+
+<title></title>
+</head>
+<body>
+        
+    <div class="row">
+        <div id="word-count" style="width:1400px; height:600;" ></div>
+    </div>
+
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+	<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var endpoint = '/api/chart/data'
+            var wordName = wordCount = []
+        $.ajax({
+            method: "GET",
+            url: endpoint,
+            success: function(data){
+                wordName = data.word
+                wordCount = data.count
+                wordChart()
+            },
+            error: function(error_data){
+                console.log("error")
+            },
+
+        })
+
+        function wordChart(){
+            var data = [{
+                x: wordName,
+                y: wordCount,
+                type: 'bar',
+                orientation: 'v',
+                marker: {
+                    color: '#23b7e5',
+                }, 
+            }];
+            var layout = {
+                title: "Top Words Used in Today's News",
+                margin: {l:200},
+            };
+        Plotly.newPlot('word-count',data, layout);
+        }
+
+        })
+    </script>
+</body>
+</html>
