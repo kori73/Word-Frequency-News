@@ -4,7 +4,7 @@ certifi==2018.4.16
 chardet==3.0.4
 decorator==4.3.0
 Django==2.0.7
-djangorestframework==3.8.2
+djangorestframework==3.11.2
 idna==2.7
 ipython-genutils==0.2.0
 jsonschema==2.6.0
